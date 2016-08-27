@@ -69,6 +69,10 @@ $(function(){
   }
   console.log($(this).prop("checked"));
  });
+
+ $("#string4search").on("click",function(){
+  this.setSelectionRange(0,$(this).val().length);
+ });
  
 
  $(".error").hide();
