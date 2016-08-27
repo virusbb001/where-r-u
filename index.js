@@ -44,9 +44,32 @@ $(function(){
   $(".error").text("ERROR: "+error.code+"\n"+error.message);
  };
 
- var big_brother=navigator.geolocation.watchPosition(success,error,{
+ var opts={
   enableHighAccuracy: true
+ };
+
+ $(".not_watching").hide();
+ var big_brother=navigator.geolocation.watchPosition(success,error,opts);
+
+ $("#watch_me").on("change",function(){
+  console.log("changed");
+  if($(this).prop("checked")){
+   if(big_brother!==null){
+    return;
+   }
+   $(".not_watching").hide();
+   big_brother=navigator.geolocation.watchPosition(success,error,opts);
+  }else{
+   if(big_brother===null){
+    return;
+   }
+   $(".not_watching").show();
+   navigator.geolocation.clearWatch(big_brother);
+   big_brother=null;
+  }
+  console.log($(this).prop("checked"));
  });
+ 
 
  $(".error").hide();
 });
