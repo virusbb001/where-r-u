@@ -33,11 +33,11 @@ $(function(){
 
   $("#timestamp").text(date.toString());
   text+="取得時刻: "+date.toString()+"\n";
+  var for_searching=coords.latitude+","+coords.longitude;
+  text+="\n検索用\n"+for_searching+"\n";
 
   $("#text4copy").val(text);
-  $("#string4search").val(
-   coords.latitude+","+coords.longitude
-  );
+  $("#string4search").val(for_searching);
  };
 
  var error=function(error){
