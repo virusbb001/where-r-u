@@ -35,6 +35,9 @@ $(function(){
   text+="取得時刻: "+date.toString()+"\n";
 
   $("#text4copy").val(text);
+  $("#string4search").val(
+   coords.latitude+","+coords.longitude
+  );
  };
 
  var error=function(error){
